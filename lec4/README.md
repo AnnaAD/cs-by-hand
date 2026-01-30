@@ -1,10 +1,14 @@
-# q1.py - mini computer for N*(N-1) and N! 
-    - or A*B using adder and decrement module?
 
 
 # q3.py - Full 4-bit Arith Unit for ADD/SUB
 - V,F,N flags
 
+<img src="../outputs/lec4/q3.svg"/>
+
+# q1.py - mini computer for N*(N-1) and N! 
+    - or A*B using adder and decrement module?
+    - data path logic
+    - control logic
 
 # q2.py - mini general purpose 4-bit computer w/ instruction memory? (zero/add)?
 
@@ -24,7 +28,7 @@ ADD -3
 
 
 
-# q3.py - add subtraction operation?
+# q4.py - add subtraction operation?
 
 - 1 register
 - Arith Unit w/ subtraction logic, new control signal for ALUFN
