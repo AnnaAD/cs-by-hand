@@ -10,6 +10,14 @@
     - data path logic
     - control logic
 
+- modules : `-1`, `*`, `?=0`, control logic
+- input: N
+- input: Clock
+- add 2 registers, draw control logic FSM, to create N! computer
+
+<img src="../outputs/lec4/q1.svg"/>
+
+
 # q2.py - mini general purpose 4-bit computer w/ instruction memory? (zero/add)?
 
 - Fetch, Decode, Execute

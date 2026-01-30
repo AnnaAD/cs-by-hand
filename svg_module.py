@@ -1,6 +1,6 @@
 import svgwrite
 
-def draw_module(dwg,x,y,width,height,inputs,outputs,label):
+def draw_module(dwg,x,y,width,height,inputs,outputs,label, align_label = "middle"):
 
     margin = 20
     dwg.add(
@@ -8,7 +8,8 @@ def draw_module(dwg,x,y,width,height,inputs,outputs,label):
             insert=(x, y),
             size=(width, height),
             fill="none",
-            stroke="black"
+            stroke="black",
+            stroke_width=2
         )
     )
 
@@ -50,13 +51,24 @@ def draw_module(dwg,x,y,width,height,inputs,outputs,label):
         )
         ty+=(height-margin*1.5)/max(len(outputs)-1,1)
     
-    dwg.add(
-        dwg.text(
-            label,
-            insert=(x+width/2, y+height/2),
-            text_anchor="middle",
-            font_size=14 
+    if(align_label != "top"):
+        dwg.add(
+            dwg.text(
+                label,
+                insert=(x+width/2, y+height/2),
+                text_anchor="middle",
+                font_size=14 
+            )
         )
-    )
+    else:
+        dwg.add(
+            dwg.text(
+                label,
+                insert=(x+width/2, y+30),
+                text_anchor="middle",
+                font_size=14 
+            )
+        )
+
 
 

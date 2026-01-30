@@ -229,7 +229,7 @@ def draw_buffer(dwg,x,y, negate=False):
 
 def draw_mux(dwg,x,y, inputs = [], output = "", negate=False):
     buffer_path = string_to_path("m 28,81 0,-95 32.5,17.5 0,60 -32.5,17.5 z")
-    buf_sym = dwg.path(d=buffer_path, fill="none", stroke="black", stroke_width = 3)
+    buf_sym = dwg.path(d=buffer_path, fill="none", stroke="black", stroke_width = 2)
     buf_sym.translate(-50,25)
     buf_sym.translate(x,y)
     dwg.add(buf_sym)
