@@ -33,8 +33,11 @@ ADD 0
 ADD 3
 ADD -3
 ```
+<img src="../outputs/lec4/q2.svg"/>
 
-
+- Draw the wires to compelte the mini-computer
+- Highlight the "control path", highlight the "data" path.
+- What must CLK cycle be set to?
 
 # q4.py - add subtraction operation?
 
