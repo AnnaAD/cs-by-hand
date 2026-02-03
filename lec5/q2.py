@@ -4,7 +4,7 @@ import svgwrite
 margin = 40
 
 width = 650
-height = 500
+height = 750
 
 dwg = svgwrite.Drawing("outputs/lec5/q2.svg", size=(width,height))
 

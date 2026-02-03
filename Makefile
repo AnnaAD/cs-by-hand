@@ -20,3 +20,6 @@ all_questions:
 	venv/bin/python3 -m lec4.q1
 	venv/bin/python3 -m lec4.q2
 	venv/bin/python3 -m lec4.q3
+
+	venv/bin/python3 -m lec5.q1
+	venv/bin/python3 -m lec5.q2

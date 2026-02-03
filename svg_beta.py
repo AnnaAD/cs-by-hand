@@ -11,9 +11,10 @@ def draw_beta_processor(dwg,x,y,margin):
     draw_module(dwg, x+margin*3+200,y, 200,100 ,["OPCODE"], ["ALUFN", "WERF"], "Control Logic")
 
 
-    draw_module(dwg, x,y+150+margin*2, 100,100,["WD", "A","R/W"], ["RD"], "Data Memory")
-    draw_module(dwg, x+margin+100,y+150+margin*2,100,100, ["A","B", "ALUFN"],["D","Z"] ,"ALU")
     draw_module(dwg,x+margin*2+200,y+150+margin*2,140,140,["RA1","RA2", "WA","WE","WD",">"],["RD1", "RD2"],"Register File")
+
+    draw_module(dwg, x+margin*3+100,y+150*2+margin*3,100,100, ["A","B", "ALUFN"],["D"] ,"ALU")
+    draw_module(dwg, x+margin*3+100,y+150*2+100+margin*4, 100,100,["WD", "A","R/W"], ["RD"], "Data Memory")
 
     dx = 0
     box_size = 15
