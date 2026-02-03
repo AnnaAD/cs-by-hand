@@ -20,8 +20,13 @@ def draw_binary_row(dwg, num_boxes,y, box_size = 40,margin=20, text_height=20, t
                 font_size=14
             ))
 
-NEGATIVES = False
-num_boxes = 6            
+import sys
+
+if(len(sys.argv) != 4):
+    print("Usage: q2.py <negative|not> <num_bits> <outfile>")
+
+NEGATIVES = "negative" in sys.argv[1]
+num_boxes = int(sys.argv[2])           
 box_size = 40             
 margin = 20
 text_height = 20
@@ -29,10 +34,10 @@ text_height = 20
 width = margin * 2 + num_boxes * box_size
 height = margin * 2 + box_size + text_height
 
-dwg = svgwrite.Drawing("outputs/lec0-1/q2.svg", size=(width, height))
+dwg = svgwrite.Drawing(sys.argv[3], size=(width, height))
 
 if(NEGATIVES):
-    decimal = random.randint(-1*(2**(num_boxes-1)),2**(num_boxes - 1) - 1)
+    decimal = random.randint(-1*(2**(num_boxes-1)), -1)
 else:
     decimal = random.randint(0,2**(num_boxes) - 1)
 
