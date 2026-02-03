@@ -6,7 +6,7 @@ from svg_logic import draw_mux
 def draw_input_area(dwg,x,y):
     dx = 0
 
-    for i in ["RA1","RA2", "WA","WE"]:
+    for i in ["RA1","RA2", "WA","WE","WD"]:
         dwg.add(dwg.text(
             f"{i}",
             insert=(x+dx,y),
@@ -24,7 +24,7 @@ def draw_input_area(dwg,x,y):
 
 margin = 40
 
-width = 650
+width = 750
 height = 300
 
 dwg = svgwrite.Drawing("outputs/lec5/q1.svg", size=(width,height))
