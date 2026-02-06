@@ -226,6 +226,9 @@ def draw_buffer(dwg,x,y, negate=False):
                        stroke_width=3)
         not_circle.translate(x,y)
         dwg.add(not_circle)
+    
+    return {"input": (x,20+y),
+    "output": (40+x, 20+y)}
 
 def draw_mux(dwg,x,y, inputs = [], output = "", negate=False):
     buffer_path = string_to_path("m 28,81 0,-95 32.5,17.5 0,60 -32.5,17.5 z")
@@ -317,7 +320,7 @@ def draw_wire(dwg, start, end, draw_dot = False):
             fill="black"
         ))
 
-def draw_mux_2(dwg,x,y,width,inputs = [], output = "", rotate=0):
+def draw_mux_2(dwg,x,y,width,inputs = [], output = "", rotate=0, select_label = "S"):
     up_mux_path = [("M",(x,y)),("L", (x+10,y+10)), ("L",(x+width-10, y+10)),("L", (x+width, y)),("z")]
     right_mux_path = [("M",(x,y)),("L", (x+10,y+10)), ("L",(x+10, y+width-10)),("L", (x, y+width)),("z")]
     path = dwg.path(d=right_mux_path if rotate == 0 else up_mux_path, fill="none", stroke="black", stroke_width=2)
@@ -326,7 +329,7 @@ def draw_mux_2(dwg,x,y,width,inputs = [], output = "", rotate=0):
     )
     dwg.add(
         dwg.text(
-            f"S",
+            f"{select_label}",
             insert= (x-15, y+5) if rotate else (x+5,y+width+20),
             text_anchor="middle",font_size=14
         )
@@ -343,11 +346,18 @@ def draw_mux_2(dwg,x,y,width,inputs = [], output = "", rotate=0):
     input_coord = []
 
     delta = 20
+    j = 0
     for i in inputs:
         dwg.add(dwg.text(
             f"{i}",
             insert=(x+delta, y-15) if rotate else (x-15,y+delta),
             text_anchor="middle", font_size=14
+        ))
+
+        dwg.add(dwg.text(
+            f"{j}",
+            insert=(x+delta, y+5) if rotate else (x+5,y+delta),
+            text_anchor="middle", font_size=10
         ))
 
         dwg.add(dwg.line(
@@ -357,6 +367,7 @@ def draw_mux_2(dwg,x,y,width,inputs = [], output = "", rotate=0):
         ))
         input_coord.append((x+delta, y-10) if rotate else (x-10,y+delta))
         delta+=(width-40)/(len(inputs)-1)
+        j+=1
     
     if output:
         dwg.add(dwg.text(

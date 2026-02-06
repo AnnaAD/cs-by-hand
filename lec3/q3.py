@@ -4,6 +4,51 @@ import svgwrite
 
 import random
 
+from svg_logic import draw_buffer, draw_wire
+from svg_module import draw_module
+
+def draw_flip_flop(dwg,x,y):
+    d1= draw_module(dwg,x+100,y,80,100,["D","WE"],["Q"],"D-latch")
+    d2= draw_module(dwg,x+300,y,80,100,["D","WE"],["Q"],"D-latch")
+
+    buf = draw_buffer(dwg, x+50, y + 120, negate = True)
+
+    buf2 = draw_buffer(dwg, x+200, y + 120, negate = True)
+
+    clk = draw_module(dwg,x,y+120,30,30,[],["CLK"], "")
+    data = draw_module(dwg,x,y,30,30,[],["D"],"")
+    out = draw_module(dwg,x+450,y,30,30,["Q"],[], "")
+
+
+    draw_wire(dwg, clk["outputs"][0], buf["input"])
+    draw_wire(dwg, buf["output"], d1["inputs"][1])
+    draw_wire(dwg, buf["output"], buf2["input"])
+    draw_wire(dwg, data["outputs"][0], d1["inputs"][0])
+    draw_wire(dwg, d1["outputs"][0], d2["inputs"][0])
+    draw_wire(dwg, buf2["output"], d2["inputs"][1])
+    draw_wire(dwg, d2["outputs"][0], out["inputs"][0])
+
+    x1,y1= d1["outputs"][0] 
+    x2,y2= d2["inputs"][0]
+
+    dwg.add(dwg.text(
+        "★",
+        insert=((x1+x2)*0.5,(y1+y2)*0.5 - 15),
+        text_anchor = "middle",
+        font_size=20
+    ))
+
+
+
+
+
+
+
+
+
+
+
+
 def draw_data_row(dwg,x,y,tick_width,num_ticks,row_height, clk = True):
     path_commands = []
     start_width = tick_width
@@ -54,13 +99,16 @@ margin = 50
 plot_width = 500
 row_height = 50
 row_margin = 10
+flip_flop_height = 200
 
 width = plot_width + margin*2
-height = margin*2 + row_height*4 + row_margin*4
+height = margin*3 + row_height*4 + row_margin*4 + flip_flop_height
 
 dwg = svgwrite.Drawing("outputs/lec3/q3.svg", size=(width,height))
 
-draw_waveform_plot(dwg, margin,margin, plot_width, row_height, row_margin)
+draw_flip_flop(dwg,margin,margin*2)
+
+draw_waveform_plot(dwg, margin,margin*2+flip_flop_height, plot_width, row_height, row_margin)
 
 dwg.add(dwg.text(
         f"Draw the signal waveform for Q and ★",

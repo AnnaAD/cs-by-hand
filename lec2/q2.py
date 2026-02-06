@@ -4,57 +4,13 @@
 
 
 import svgwrite
-from svg_logic import draw_and, draw_xor,draw_or 
+from svg_logic import draw_and, draw_xor,draw_or, draw_buffer
+from svg_truthtable import draw_truth_table
 
-def draw_truth_table(dwg,x,y,row_height, col_width, inputs, outputs):
-
-    width = (len(inputs)+len(outputs))*col_width
-    height = 2**(len(inputs))*row_height
-
-    dwg.add(dwg.rect(
-            insert=(x, y),
-            size=(width, height),
-            fill="none",
-            stroke="black"
-    ))
-
-    for i in range(len(inputs)):
-        tx = x + i * col_width
-        dwg.add(dwg.text(
-            f"{inputs[i]}",
-            insert=(tx + col_width/2, y),
-            text_anchor="middle",
-            font_size=14
-        ))
-        dwg.add(dwg.line(start=(tx+col_width,y),
-            end=(tx+col_width,y+height),
-            stroke="black",
-            stroke_width=2 if i == len(inputs)-1 else 1))
-    
-    for i in range(len(outputs)):
-        tx = x + (i+len(inputs)) * col_width
-        dwg.add(dwg.text(
-            f"{outputs[i]}",
-            insert=(tx + col_width/2, y),
-            text_anchor="middle",
-            font_size=14
-        ))
-        dwg.add(dwg.line(start=(tx+col_width,y),
-            end=(tx+col_width,y+height),
-            stroke="black",
-            stroke_width=1))
-
-    for i in range(2**(len(inputs))):
-        ty = y + i*row_height
-        dwg.add(dwg.line(start=(x,ty),
-            end=(x+width,ty),
-            stroke="black",
-            stroke_width=1))
-        
 
 
 width = 600
-height = 200
+height = 240
 dwg = svgwrite.Drawing("outputs/lec2/q2.svg", size=(width,height))
 
 
@@ -72,7 +28,12 @@ for func in [draw_and,draw_or, draw_xor]:
 
     x+=200
 
+x = 20 + 200* 1
+for func in [draw_buffer]:
+    func(dwg,x,180,negate=True)
+    draw_truth_table(dwg, x+80,180, 15,20, ["x"], ["z"])
 
+    x+=200
 
 
 dwg.save()
