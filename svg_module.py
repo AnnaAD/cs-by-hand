@@ -13,6 +13,8 @@ def draw_module(dwg,x,y,width,height,inputs,outputs,label, align_label = "middle
         )
     )
 
+    input_coord = []
+
     ty = margin
     for i in inputs:
         dwg.add(
@@ -30,8 +32,10 @@ def draw_module(dwg,x,y,width,height,inputs,outputs,label, align_label = "middle
                 stroke="black", stroke_width=2
             )
         )
+        input_coord.append((x-10, y+ty))
         ty+=(height-margin*1.5)/max(len(inputs)-1,1)
     
+    output_coord = []
     ty = margin
     for i in outputs:
         dwg.add(
@@ -49,6 +53,7 @@ def draw_module(dwg,x,y,width,height,inputs,outputs,label, align_label = "middle
                 stroke="black", stroke_width=2
             )
         )
+        output_coord.append((x+width+10,y+ty))
         ty+=(height-margin*1.5)/max(len(outputs)-1,1)
     
     if(align_label != "top"):
@@ -69,6 +74,11 @@ def draw_module(dwg,x,y,width,height,inputs,outputs,label, align_label = "middle
                 font_size=14 
             )
         )
+    
+    return {
+        "inputs":input_coord,
+        "outputs":output_coord,
+    }
 
 
 

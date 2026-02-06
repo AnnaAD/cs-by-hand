@@ -316,3 +316,62 @@ def draw_wire(dwg, start, end, draw_dot = False):
             r=3,
             fill="black"
         ))
+
+def draw_mux_2(dwg,x,y,width,inputs = [], output = "", rotate=0):
+    up_mux_path = [("M",(x,y)),("L", (x+10,y+10)), ("L",(x+width-10, y+10)),("L", (x+width, y)),("z")]
+    right_mux_path = [("M",(x,y)),("L", (x+10,y+10)), ("L",(x+10, y+width-10)),("L", (x, y+width)),("z")]
+    path = dwg.path(d=right_mux_path if rotate == 0 else up_mux_path, fill="none", stroke="black", stroke_width=2)
+    dwg.add(
+        path
+    )
+    dwg.add(
+        dwg.text(
+            f"S",
+            insert= (x-15, y+5) if rotate else (x+5,y+width+20),
+            text_anchor="middle",font_size=14
+        )
+    )
+
+    dwg.add(
+        dwg.line(
+            start= (x+5,y+5) if rotate else (x+5,y+width-5) ,
+            end=   (x-12, y+5) if rotate else (x+5,y+width+10),
+            stroke="black",stroke_width=2
+        )
+    )
+
+    input_coord = []
+
+    delta = 20
+    for i in inputs:
+        dwg.add(dwg.text(
+            f"{i}",
+            insert=(x+delta, y-15) if rotate else (x-15,y+delta),
+            text_anchor="middle", font_size=14
+        ))
+
+        dwg.add(dwg.line(
+            start=(x+delta,y) if rotate else (x,y+delta),
+            end=(x+delta, y-10) if rotate else (x-10,y+delta),
+            stroke="black",stroke_width=2
+        ))
+        input_coord.append((x+delta, y-10) if rotate else (x-10,y+delta))
+        delta+=(width-40)/(len(inputs)-1)
+    
+    if output:
+        dwg.add(dwg.text(
+            f"{output}",
+            insert=(x + width/2, y+35) if rotate else (x+27, y+width/2+5),
+            text_anchor="middle",font_size=14
+        ))
+        dwg.add(dwg.line(
+            start= (x + width/2, y+10) if rotate else (x+10, y+width/2),
+            end=(x + width/2, y+20) if rotate else (x+20, y+width/2),
+            stroke="black",stroke_width=2
+        ))
+    
+    return {
+        "inputs": input_coord,
+        "output": (x + width/2, y+20) if rotate else (x+20, y+width/2),
+        "select": (x-12, y+5) if rotate else (x+5,y+width+10)
+    }

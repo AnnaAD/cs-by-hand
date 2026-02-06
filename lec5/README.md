@@ -30,7 +30,7 @@ What is the final value stored in memory?
 
 <img src="../outputs/lec5/q1.svg">
 
-## q1.py 2-Register ALU operations, signals, encoding
+## q2.py 2-Register ALU operations, signals, encoding
 
 - `draw_beta_processor()`
 
@@ -79,9 +79,9 @@ What is the final value stored in memory?
 - fill in control FSM-- given this class of opcode, what should ALUFN, WERF, BSEL, MOE, MWE, WDSEL be?
 - fill in the instruction `LD(r1,-3,r3)`
 
-## q5.py ST operation
+## q6.py ST operation
 
-- `draw_beta_processor(mode="opc+st")`
+- `draw_beta_processor(mode="opc+ld+st")`
     - this must draw an additional BSEL mux
     - this must include WDSEL
     - this must include RASEL 
@@ -91,7 +91,7 @@ What is the final value stored in memory?
 - fill in control FSM-- given this class of opcode, what should ALUFN, WERF, BSEL, MOE, MWE, WDSEL, RA2SEL be?
 - fill in the instruction `ST(r1,-3,r3)`
 
-## q6.py Branch operation
+## q7.py JMP operation
 
 - `draw_beta_processor(mode="opc+ld+st+branch")`
     - this must draw an additional BSEL mux
@@ -101,6 +101,12 @@ What is the final value stored in memory?
 <img src="../outputs/lec5/q2.svg">
 
 - fill in control FSM-- given this class of opcode, what should ALUFN, WERF, BSEL, MOE, MWE, WDSEL,RA2SEL, PCSEL be?
+
+- fill in the instruction `JMP(r5,r2)`
+
+
+## q8.py Branch Operation
+
 - fill in the instruction `BZ(r1,-3,r3)`
 
 
