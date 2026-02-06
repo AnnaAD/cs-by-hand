@@ -35,7 +35,13 @@ text_height = 20
 width = margin * 2 + num_boxes * box_size
 height = margin * 3 + box_size*4 + text_height*4
 
-dwg = svgwrite.Drawing("outputs/lec0-1/q3.svg", size=(width, height))
+import sys
+
+if(len(sys.argv) != 2):
+    print("Usage: q2.py <outfile>")
+
+
+dwg = svgwrite.Drawing(sys.argv[1], size=(width, height))
 
 import random
 decimal1 = random.randint(-1*(2**(num_boxes-1)),2**(num_boxes - 1) - 1)

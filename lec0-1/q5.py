@@ -49,8 +49,14 @@ def draw_hex_row(dwg, num_boxes,y, box_size = 40,margin=20, fill_random_digit = 
                 font_size=14
             ))
 
-HEX_TO_BIN = True
-num_boxes = 16            
+import sys
+
+if(len(sys.argv) != 4):
+    print("Usage: q2.py <hex|bin> <num_bits> <outfile>")
+
+
+HEX_TO_BIN = "hex" in sys.argv[1]
+num_boxes = int(sys.argv[2])           
 box_size = 40             
 margin = 20
 text_height = 20
@@ -58,7 +64,7 @@ text_height = 20
 width = margin * 2 + num_boxes * box_size
 height = margin * 2 + box_size*2 + text_height
 
-dwg = svgwrite.Drawing("outputs/lec0-1/q5.svg", size=(width, height))
+dwg = svgwrite.Drawing(sys.argv[3], size=(width, height))
 
 dwg.add(dwg.text(
         f"Fill in the {"Binary" if HEX_TO_BIN else "Hexidecimal"}",
