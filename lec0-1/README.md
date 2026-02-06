@@ -25,6 +25,10 @@ To represent a negative value in 2's complement:
 2. Flip each digit (0->1 or 1->0)
 3. Add 1 in binary (remember to carry if needed!)
 
+Doing the procedure again (starting with a negative version of the number in binary) will flip a negative value to a positive.
+Notice, that positive values will always have a zero as the highest order bit, while negative values will have a 1 in the highest order bit.
+As such, we call the highest order bit, the **sign bit**.
+
 Fill in the circle with the decimal value of the following 4-bit 2's complement binary around the circle.
 
 <img src="../outputs/lec0-1/q1.svg"/>
