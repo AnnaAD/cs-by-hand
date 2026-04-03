@@ -7,7 +7,7 @@ input_height_area = 100
 rca_height = 180
 
 width = 600
-height = rca_height+margin*4+input_height_area
+height = rca_height+margin*4+input_height_area+200
 
 dwg = svgwrite.Drawing("outputs/lec4/q3.svg", size=(width,height))
 
@@ -22,13 +22,13 @@ for i in range(4):
     outputs.append(f"S[{i}]")
 
 
-draw_module(dwg,width/2 - 140/2,margin*2+input_height_area,140,rca_height,inputs,outputs,"4-bit Adder")
+draw_module(dwg,width - 140 - margin,margin*2+input_height_area,140,rca_height,inputs,outputs,"4-bit Adder")
 
 
 
-draw_module(dwg,margin+200,rca_height+margin*3+input_height_area,30,30,[""],[],f"V")
-draw_module(dwg,margin+250,rca_height+margin*3+input_height_area,30,30,[""],[],f"Z")
-draw_module(dwg,margin+300,rca_height+margin*3+input_height_area,30,30,[""],[],f"N")
+draw_module(dwg,margin+250,rca_height+margin*3+input_height_area,30,30,[""],[],f"V")
+draw_module(dwg,margin+250,rca_height+margin*3+input_height_area + 80,30,30,[""],[],f"Z")
+draw_module(dwg,margin+250,rca_height+margin*3+input_height_area + 160,30,30,[""],[],f"N")
 
 
 

@@ -1,6 +1,6 @@
 import svgwrite
 from svg_module import draw_module 
-from svg_logic import draw_mux
+from svg_logic import draw_mux_2 as draw_mux
 
 
 margin = 40
@@ -11,8 +11,8 @@ height = margin*4+input_height_area + 600
 
 dwg = svgwrite.Drawing("outputs/lec4/q1.svg", size=(width,height))
 
-draw_mux(dwg, margin*2+width/2+40, margin*2 + input_height_area, [" "," "]," ")
-draw_mux(dwg, margin*2+40, margin*2 + input_height_area, [" "," "]," ")
+draw_mux(dwg, margin*2+width/2+40, margin*2 + input_height_area,100, [" "," "]," ",rotate=90)
+draw_mux(dwg, margin*2+40, margin*2 + input_height_area,100, [" "," "]," ",rotate=90)
 
 
 draw_module(dwg,margin*2+width/2,margin*2 + input_height_area + 200,80,60,["A","B"],["Y"],"+")

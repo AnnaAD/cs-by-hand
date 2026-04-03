@@ -24,15 +24,19 @@ Complete the implementation of the 4-bit arith unit below.
 
 <img src="../outputs/lec4/q3.svg"/>
 
-# q1.py - mini computer for N*(N-1) and N! 
-    - or A*B using adder and decrement module?
-    - data path logic
-    - control logic
+# q1.py - mini computer for N! 
 
-- modules : `-1`, `*`, `?=0`, control logic
-- input: N
-- input: Clock
-- add 2 registers, draw control logic FSM, to create N! computer
+Let's create a mini computer that can compute $N!$.
+
+To complete this task you will be creating two things:
+
+
+- **The Data path**-- wires, muxes, registers, etc. that combine to move the data of our computation from our two computation modules (multiplication and -1).
+- **The Control path** -- when should our computation stop? To do this, you can compute a control signal as input to our control logic module. This control logic module can implement a finite state machine and output any needed *control signals*, which our circuit can use as input.
+    - Consider, that the registers' write enable signals should likely be output of our control logic.
+
+
+Complete the circuit by adding wires, registers, and control logic description.
 
 <img src="../outputs/lec4/q1.svg"/>
 
@@ -71,6 +75,9 @@ ADD 3
 SUB 2
 ADD -3
 ```
+
+<img src="../outputs/lec4/q2.svg"/>
+
 
 
 
