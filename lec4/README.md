@@ -1,7 +1,26 @@
-
+Now we will start to build up to constructing a full mini computer processor that can perform 2 operations: addition and subtraction.
 
 # q3.py - Full 4-bit Arith Unit for ADD/SUB
-- V,F,N flags
+
+Remember the 4-bit full adder you implemented in lec2.q7? 
+We want to expand the logic of the 4-bit adder to be a full "arith" unit.
+
+This unit should use the 4-bit adder to perform addition, if the ALU bit is 0. 
+The unit should use the 4-bit adder to preform 2's-complement subtraction if the ALU bit is 1.
+
+Eventually, we will also want to use this arith unit to perform comparison, for example.
+To do so, we will also compute 3 1-bit outputs, called "flag" bits.
+
+- The "Z" flag should be 1 if your four-bit output is equal to 0000.
+- The "N" flag should be 1 if your four-bit output is negative in 2's complement.
+- The "V" flag should be 1 if overflow occured. 
+
+The logic for this is equivalent to:
+$$V = XA_{3} * XB_{3} * \overline{S_{3}} + \overline{XA_{3}} * \overline{XB_{3}} * S_{3}$$
+
+Consider, how can we use SUB and this Z bit to check if two values are equal? _______________
+
+Complete the implementation of the 4-bit arith unit below.
 
 <img src="../outputs/lec4/q3.svg"/>
 
