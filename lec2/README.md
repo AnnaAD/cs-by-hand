@@ -11,7 +11,7 @@ Below, we have:
 1. AND (produces a 1 if A and B are 1. Otherwise 0)
 2. OR (produces a 1 if either A and B, or both, are 1. Otherwise 0.)
 3. XOR (produces a 1 if either, but not both, A and B are 1. Otherwise 0.)
-4. NAND (not and) (produces a 1 if A and B are 0. Otherwise 1)
+4. NAND (not and) (produces a 0 if A and B are 1. Otherwise 0)
 5. NOR (not or) (produces a 0 if either A and B, or both, are 1. Otherwise 1.)
 6. NOT XOR (produces a 0 if either, but not both, A and B are 1. Otherwise 1.)
 
