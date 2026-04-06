@@ -31,3 +31,8 @@ all_questions:
 
 	venv/bin/python3 -m lec5.q1
 	venv/bin/python3 -m lec5.q2
+
+output:
+	venv/bin/python3 convert.py
+	venv/bin/python3 export.py
+	pdflatex output.tex

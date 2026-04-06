@@ -22,6 +22,7 @@ Consider, how can we use SUB and this Z bit to check if two values are equal? __
 
 Complete the implementation of the 4-bit arith unit below.
 
+![problem](../outputs/lec4/q3.pdf)
 <img src="../outputs/lec4/q3.svg"/>
 
 # q1.py - mini computer for N! 
@@ -38,6 +39,7 @@ To complete this task you will be creating two things:
 
 Complete the circuit by adding wires, registers, and control logic description.
 
+![problem](../outputs/lec4/q1.pdf)
 <img src="../outputs/lec4/q1.svg"/>
 
 
@@ -56,6 +58,8 @@ ADD 0
 ADD 3
 ADD -3
 ```
+
+![problem](../outputs/lec4/q2.pdf)
 <img src="../outputs/lec4/q2.svg"/>
 
 - Draw the wires to compelte the mini-computer
@@ -76,6 +80,7 @@ SUB 2
 ADD -3
 ```
 
+![problem](../outputs/lec4/q2.pdf)
 <img src="../outputs/lec4/q2.svg"/>
 
 

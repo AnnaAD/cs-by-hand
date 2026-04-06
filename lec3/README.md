@@ -8,6 +8,7 @@ Inspect the circuit below.
 
 Consider the labeled signal 0. What is the value on all other wires in the circuit?
 
+![problem](../outputs/lec3/q1.pdf)
 <img src="../outputs/lec3/q1.svg"/>
 
 Building off such "feedback" loops we can create stable storage.
@@ -20,6 +21,7 @@ Note, that we have labeled the "select bit" of the mux "WE". "WE" stands for wri
 
 Now, fill out the truth table accordingly.
 
+![problem](../outputs/lec3/q2.pdf)
 <img src="../outputs/lec3/q2.svg"/>
 
 We will represent the mux with feedback loop as the module "D-Latch" with inputs D and WE, and output Q.
@@ -37,10 +39,11 @@ Building circuits around this timing consideration can be troublesome. Instead, 
 
 Investigate the implementation of the flip flop below and complete the missing waveforms given the CLK and input data.
 
-
+![problem](../outputs/lec3/q3.pdf)
 <img src="../outputs/lec3/q3.svg"/>
 
 
 ## q4.py FSM -- Binary Combination Lock
 
+![problem](../outputs/lec3/q4.pdf)
 <img src="../outputs/lec3/q4.svg"/>

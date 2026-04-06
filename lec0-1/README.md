@@ -2,7 +2,7 @@
 # q2.py Binary Representations
 
 As humans, we are used to counting in base 10, we have 10 distinct digits: 0,1,2,3,4,5,6,7,8,9.
-When we parse a number, 1,431 for example, we understand this value as being 1*1000 + 4*100 + 3*10 +1. Effectively, each digit is a *weight* applied to a power of 10.
+When we parse a number, 1,431 for example, we understand this value as being $$1*1000 + 4*100 + 3*10 +1$$. Effectively, each digit is a *weight* applied to a power of 10.
 
 Computers, naturally, however only have access to 2 distinct values LOW (voltage) and HIGH. Thus, it is natural to represent values in **base 2** when we are talking about data in computing systems.
 
@@ -10,9 +10,11 @@ To work with **base 2** or **binary**, the basic same idea of weights and powers
 
 To represent a decimal value in binary, work from left to right. Take out the largest possible power of two from the decimal value, write a 1 in the corresponding digit, and continue to work until you reach the "one's place".
 
+![Fig1](../outputs/lec0-1/q2-1.pdf)
 <img src="../outputs/lec0-1/q2-1.svg"/>
 
-<img src="../outputs/lec0-1/q2-2.svg"/>
+![Fig2](../outputs/lec0-1/q2-2.pdf)
+<img src="../outputs/lec0-1/q2-1.svg"/>
 
 # q1.py - 2's Complement Circle
 
@@ -31,6 +33,7 @@ As such, we call the highest order bit, the **sign bit**. Consider: To represent
 
 Fill in the circle with the decimal value of the following 4-bit 2's complement binary around the circle.
 
+![Fig3](../outputs/lec0-1/q1.pdf)
 <img src="../outputs/lec0-1/q1.svg"/>
 
 Consider drawing arrows on the circle representing:
@@ -50,8 +53,10 @@ This would result in **overflow** as we can not represent 9 in 4-bit 2's complem
 
 Write the following signed integer in 2's complement binary.
 
+![Fig4](../outputs/lec0-1/q2-3.pdf)
 <img src="../outputs/lec0-1/q2-3.svg"/>
 
+![Fig5](../outputs/lec0-1/q2-4.pdf)
 <img src="../outputs/lec0-1/q2-4.svg"/>
 
 # q3.py Binary Arithmetic
@@ -60,7 +65,9 @@ Consider we can also do arithmetic with binary values just as we can with decima
 
 However, now when we do 1+1 in a single column, we must carry a 1 (from the resulting 10), to the next column. (This is similar to how we would carry a "1" to the tens place from adding 5+5 in decimal.)
 
+![Fig6](../outputs/lec0-1/q3-1.pdf)
 <img src="../outputs/lec0-1/q3-1.svg"/>
+![Fig7](../outputs/lec0-1/q3-2.pdf)
 <img src="../outputs/lec0-1/q3-2.svg"/>
 
 
@@ -79,6 +86,7 @@ If you understand base 10 as the base for humans, and base 2 as the base for com
 
 Complete the table below.
 
+![Fig8](../outputs/lec0-1/q4.pdf)
 <img src="../outputs/lec0-1/q4.svg"/>
 
 
@@ -88,8 +96,12 @@ Complete the following binary->hex conversions or hex->binary conversions. This 
 
 **Hint:** Feel free to use the table you completed above.
 
+![problem](../outputs/lec0-1/q5-1.pdf)
 <img src="../outputs/lec0-1/q5-1.svg"/>
+![problem](../outputs/lec0-1/q5-2.pdf)
 <img src="../outputs/lec0-1/q5-2.svg"/>
+![problem](../outputs/lec0-1/q5-3.pdf)
 <img src="../outputs/lec0-1/q5-3.svg"/>
+![problem](../outputs/lec0-1/q5-4.pdf)
 <img src="../outputs/lec0-1/q5-4.svg"/>
 

@@ -3,7 +3,7 @@ import svgwrite
 
 from svg_truthtable import draw_truth_table_filled
 
-inputs = ["A","B"]
+inputs = ["A","B","C"]
 outputs = ["X"]
 
 row_height = 30

@@ -25,6 +25,7 @@ On the left side of the bolded truth table line, fill in all the possible input 
 - done effectively, this will look like counting in binary: A=0,B=0 (00), A=0,B=1 (01), A=1... 
 On the right side of the bolded line, fill in the output given the corresponding A and B values.
 
+![problem](../outputs/lec2/q2.pdf)
 <img src="../outputs/lec2/q2.svg"/>
 
 ## q3.py Truth Table, SOP, Draw the circuit
@@ -43,6 +44,7 @@ $$A\bar{B}C$$
 
 Note, that OR is often represented by addition: $+$, AND is represented via multiplication $\cdot$, and NOT is often represented by a bar $\bar{A}$.
 
+![problem](../outputs/lec2/q3.pdf)
 <img src="../outputs/lec2/q3.svg"/>
 
 ## q4.py Timing Delays
@@ -60,6 +62,7 @@ Effectively, when building a circuit and combining modules, after giving new inp
 1. To calculate Tpd, find the longest path of summed Tpds of each component, along the path form input->output.
 2. To calculate Tcd, find the shortest path of summed Tcds of each component, along the path form input->output.
 
+![problem](../outputs/lec2/q4.pdf)
 <img src="../outputs/lec2/q4.svg"/>
 
 
@@ -71,6 +74,7 @@ A 2-way multiplexer takes in two inputs, and uses a third input, a "select bit" 
 
 A n-way multiplexer takes in N inputs, and `ceil(log_2(N))` select bits to describe which of the N inputs to chose from.
 
+![problem](../outputs/lec2/q5.pdf)
 <img src="../outputs/lec2/q5.svg"/>
 
 ## q6.py Full Adder
@@ -81,10 +85,12 @@ First, we must break down and understand the operation between three 1-bit value
 
 Just as before, we can represent this scenario as a truth table, then an SOP expression, and then a circuit.
 
+![problem](../outputs/lec2/q6.pdf)
 <img src="../outputs/lec2/q6.svg"/>
 
 ## q7.py 4-bit full adder
 
 Now, consider, can be combine this full-adder module into a 4-bit adder? To do so, we will build the conceptually simple (and slightly inefficient) **ripple carry adder**. This adder will work by first doing a 1-bit addition on A[0] and B[0], producing S[0] and then a carry out bit. This will be passed along to the next full adder module to calculate A[1],B[1] and so on and so forth.
 
+![problem](../outputs/lec2/q7.pdf)
 <img src="../outputs/lec2/q7.svg"/>
